@@ -22,7 +22,8 @@ public class Center {
     private JLabel displayLabel = null;
 
     public Center() {
-        centerPanel = new JPanel(new BorderLayout(5, 5));
+        this("Label","Text");
+        /*centerPanel = new JPanel(new BorderLayout(5, 5));
 
         // This label will display the greeting text from the Header component.
         displayLabel = new JLabel("Hello, World!", SwingConstants.CENTER);
@@ -38,7 +39,7 @@ public class Center {
         textArea.setWrapStyleWord(true);
 
         JScrollPane scrollPane = new JScrollPane(textArea);
-        centerPanel.add(scrollPane, BorderLayout.CENTER);
+        centerPanel.add(scrollPane, BorderLayout.CENTER);*/
     }
 
     //Constructors with paramters to change center text

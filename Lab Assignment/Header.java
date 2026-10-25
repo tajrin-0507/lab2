@@ -1,5 +1,6 @@
 /*
     Author: Prof. Autorino
+    @author Tamana, Selena
 
     Header.java
 
@@ -8,10 +9,10 @@
 */
 
 import java.awt.FlowLayout;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 
 public class Header {

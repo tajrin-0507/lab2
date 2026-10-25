@@ -1,21 +1,13 @@
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.TexturePaint;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-import javax.imageio.ImageIO;
-import javax.swing.JComponent;
-import javax.swing.JViewport;
- 
-
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author Tamana, Selena
+ * BackgroundLoader
+ */
 public class BackgroundLoader implements Runnable {
   private ScrollPaneWatermark watermark;
   public BackgroundLoader(ScrollPaneWatermark watermark) {

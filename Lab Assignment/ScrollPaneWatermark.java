@@ -11,7 +11,10 @@ import javax.swing.JComponent;
 import javax.swing.JViewport;
 
 
-
+/**
+ * @author Tamana, Selena
+ * ScrollPaneWatermark
+ */
 public class ScrollPaneWatermark extends JViewport {
     BufferedImage bgimage;
     TexturePaint texture;

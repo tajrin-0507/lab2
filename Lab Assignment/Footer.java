@@ -10,6 +10,10 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+/**
+ * @author Tamana, Selena
+ * Footer
+ */
 
 public class Footer {
     private JPanel footerPanel = null;

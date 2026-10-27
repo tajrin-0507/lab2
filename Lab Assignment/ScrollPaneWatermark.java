@@ -12,8 +12,15 @@ import javax.swing.JViewport;
 
 
 /**
- * @author Tamana, Selena
- * ScrollPaneWatermark
+ * ScrollPaneWatermark.java 
+ * 
+ * The ScrollPaneWatermark class inherits from JViewport, adding a method,
+ * setBackgroundTexture() which takes a URL instead of a File to allow 
+ * for images loaded from places other than the local disk, such as a web server or JAR file.
+ * 
+ * @author Marinacci, Joshua, and Chris Adamson.
+ * @author Edited by Tamana Bashardost, Selena Persaud
+ * @author Edited documentation by Tajrin
  */
 public class ScrollPaneWatermark extends JViewport {
     BufferedImage bgimage;

@@ -5,14 +5,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author Tamana, Selena
- * BackgroundLoader
+ * The BackgroundLoader class gets an image from a webpage
+ * and displays it behind the text area using 
+ * ScrollPaneWatermark from Hack #6
+ * 
+ * @author Marinacci, Joshua, and Chris Adamson.
+ * @author Edited by Tamana Bashardost, Selena Persaud
+ * @author Edited documentation by Tajrin
  */
 public class BackgroundLoader implements Runnable {
   private ScrollPaneWatermark watermark;
+
   public BackgroundLoader(ScrollPaneWatermark watermark) {
     this.watermark = watermark;
   }
+
   public void run() {
     while (true) {
       try {
@@ -21,21 +28,21 @@ public class BackgroundLoader implements Runnable {
         Reader input = new InputStreamReader(url.openStream());
         char buf[] = new char[1024];
         StringBuffer page_buffer = new StringBuffer();
+
         while (true) {
           int n = input.read(buf);
-          if (n < 0) {
-            break;
-          }
+          if (n < 0) break;
           page_buffer.append(buf, 0, n);
         }
-
        
         Pattern pattern = Pattern.compile("<img[^>]+src=['\"]([^'\"]*/npods/[^'\"]+)['\"]");
         Matcher matcher = pattern.matcher(page_buffer);
         matcher.find();
+
         String img_url = base_url + matcher.group(1);
         watermark.setBackgroundTexture(new URL(img_url));
         watermark.repaint();
+
         Thread.currentThread().sleep(1000 * 60 * 60 * 2);
         // Locate the Image URL (see next section)
       } catch (Exception ex) {

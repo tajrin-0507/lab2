@@ -1,90 +1,200 @@
-/*
-    Author: Prof. Autorino
-
-    Edited by: Sabrina Kessler, Selena Persaud
-
-    Center.java
-
-    Simple Swing based component to hold a label and a text field nested inside of a scroll pane.
-*/
-
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+/**
+ * Center.java
+ * 
+ * Simple Swing based component to hold a label and a text field nested inside of a scroll pane
+ * to add the questions for the user.
+ * 
+ * @author Prof. Autorino 
+ * @author Edited by Sabrina Kessler & Selena Persuad (Hack #7 Usage)
+ * @author Edited later by Tajrin for Lab 2 Group Project
+ * 
+ */
 public class Center {
+    /* Variables: Panels */
     private JPanel centerPanel = null;
-    private JTextArea textArea = null;
+    private JPanel questionPanel = null;
+
+    /* Variables: Text Labels */
     private JLabel displayLabel = null;
+    private JLabel nameLabel = null;
+    private JLabel majorLabel = null;
+    private JLabel ageLabel = null;
+    private JLabel yearLabel = null;
 
+    /* Variables: Text Fields */
+    private JTextField nameField = null;
+    private JTextField majorField = null;
+    private JTextField ageField = null;
+    private JTextField yearField = null;
+
+    /**
+     * Default constructor(calls the constructor with the params)
+     */
     public Center() {
-        this("Label","Text");
-        /*centerPanel = new JPanel(new BorderLayout(5, 5));
-
-        // This label will display the greeting text from the Header component.
-        displayLabel = new JLabel("Hello, World!", SwingConstants.CENTER);
-        displayLabel.setFont(displayLabel.getFont().deriveFont(Font.BOLD, 18f));
-        centerPanel.add(displayLabel, BorderLayout.NORTH);
-
-        textArea = new JTextArea(
-            "This is a JTextArea.\n" +
-            "You can type anything here.\n" +
-            "It demonstrates a multi-line component."
-        );
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        centerPanel.add(scrollPane, BorderLayout.CENTER);*/
+        this("About Me", "User", "Computer Science", "800", "Freshman");
     }
 
-    //Constructors with paramters to change center text
-
-    public Center(String label, String text) {
-        centerPanel = new JPanel(new BorderLayout(5, 5));
-        displayLabel = new JLabel(label, SwingConstants.CENTER);
+    /**
+     * Constructors with paramters to change center text
+     * 
+     * @param titleLabel the title at the top
+     * @param name the user's name
+     * @param major the user's major
+     * @param age the user's age
+     * @param year the user's year in university
+     */
+    public Center(String titleLabel, String name, String major, String age, String year) {
+        /* Setting panels */
+        centerPanel = new JPanel(new BorderLayout());
+        questionPanel = new JPanel(new GridLayout(4, 2, 30, 18));
+        
+        /* Display Label */
+        displayLabel = new JLabel(titleLabel, SwingConstants.CENTER);
+        displayLabel.setBackground(Color.DARK_GRAY);
+        displayLabel.setForeground(Color.GREEN);
+        displayLabel.setOpaque(true);
         displayLabel.setFont(displayLabel.getFont().deriveFont(Font.BOLD, 18f));
         centerPanel.add(displayLabel, BorderLayout.NORTH);
 
-        textArea = new JTextArea(text);
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-
+        /* User's name */
+        nameLabel = new JLabel("    Name: ");
+        nameLabel.setBackground(Color.WHITE);
+        nameLabel.setOpaque(true);
+        nameField = new JTextField(name, 15);
+        questionPanel.add(nameLabel);
+        questionPanel.add(nameField);
         
-        // Swing Hack #7 
+        /* User's major */
+        majorLabel = new JLabel("    Major: ");
+        majorLabel.setBackground(Color.LIGHT_GRAY);
+        majorLabel.setOpaque(true);
+        majorField = new JTextField(major, 15);
+        questionPanel.add(majorLabel);
+        questionPanel.add(majorField);
+
+        /* User's age */
+        ageLabel = new JLabel("    Age: ");
+        ageLabel.setBackground(Color.WHITE);
+        ageLabel.setOpaque(true);
+        ageField = new JTextField(age, 15);
+        questionPanel.add(ageLabel);
+        questionPanel.add(ageField);
+
+        /* User's Year of Study (Freshman, Sophomore, Junior, Senior) */
+        yearLabel = new JLabel("    Year: ");
+        yearLabel.setBackground(Color.LIGHT_GRAY);
+        yearLabel.setOpaque(true);
+        yearField = new JTextField(year, 15);
+        questionPanel.add(yearLabel);
+        questionPanel.add(yearField);
+
+        centerPanel.add(questionPanel, BorderLayout.CENTER);
+
+        /* Swing Hack #7 by Selena */ 
+
+        /* Adding the question panel to ScrollPaneWatermark's view port */
         ScrollPaneWatermark viewport = new ScrollPaneWatermark();
-        viewport.setView(textArea);
+        viewport.setView(questionPanel);
         viewport.setOpaque(false);
 
+        /* Adding the viewport to scroll pane and then adding scroll pane to centerpanel */
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setViewport(viewport);
         centerPanel.add(scrollPane, BorderLayout.CENTER);
         new Thread(new BackgroundLoader(viewport)).start();
     }
 
-    /* return elements so we can access their attributes. */
+    /* Return elements so we can access their attributes. */
+    public JLabel getDisplayLabel() {
+        return displayLabel;
+    }
+    /**
+     * Returns the Center Panel
+     * @return the center panel
+     */
     public JPanel getCenterPanel() {
         return centerPanel;
     }
 
-    public JLabel getDisplayLabel() {
-        return displayLabel;
+    /**
+     * Returns the user's name
+     * @return the name text
+     */
+    public String getName(){ 
+        return nameField.getText();
     }
 
-    public JTextArea getTextArea() {
-        return textArea;
+    /**
+     * Returns the user's major
+     * @return the major text
+     */
+    public String getMajor(){ 
+        return majorField.getText();
     }
 
-    //Setters
+    /**
+     * Returns the user's age
+     * @return the age text
+     */
+    public String getAge(){ 
+        return ageField.getText();
+    }
+
+    /**
+     * Returns the user's year
+     * @return the year text
+     */
+    public String getYear(){ 
+        return yearField.getText();
+    }    
+    
+    /* Setter methods to apply custom changes */
+
     public void setDisplayLabel(String label) {
         displayLabel.setText(label);
     }
 
-    public void setTextArea(String text){
-        textArea.setText(text);
+    /**
+     * Sets name field to given string
+     * @param name the user's name
+     */
+    public void setName(String name){
+        nameField.setText(name);
     }
+
+    /**
+     * Sets major field to given string
+     * @param major the user's major
+     */
+    public void setMajor(String major){
+        majorField.setText(major);
+    }
+    
+    /**
+     * Sets age field to given string
+     * @param age the user's age
+     */
+    public void setAge(String age){
+        ageField.setText(age);
+    }
+    
+    /**
+     * Sets year field to given string
+     * @param year the user's year
+     */
+    public void setYear(String year){
+        yearField.setText(year);
+    }
+    
+
 }

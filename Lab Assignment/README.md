@@ -18,7 +18,8 @@ Well documented code; 20/20pts
 Your program included at least one hack. 20/10pts (includes two)
 
 ### How to run:
-Compile: javac Header.java Center.java Footer.java ScrollPaneWatermark.java BackgroundLoader.java 
+(Need to use no warn because some URL code a deprecated)
+Compile: javac -nowarn Header.java Center.java Footer.java ScrollPaneWatermark.java BackgroundLoader.java 
 
 Once compiled without errors...
 

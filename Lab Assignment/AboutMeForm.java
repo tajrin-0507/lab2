@@ -62,8 +62,7 @@ public class AboutMeForm {
            System.out.println("User exited the form.");
            System.exit(0);
        });
-
-
+       
        frame.setVisible(true);
    }
 }

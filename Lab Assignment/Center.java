@@ -38,10 +38,16 @@ public class Center {
     private JTextField yearField = null;
 
     /**
-     * Default constructor(calls the constructor with the params)
+     * Default constructor
+     * (calls the constructor
+     *  with the params)
      */
     public Center() {
-        this("About Me", "User", "Computer Science", "800", "Freshman");
+        this("About Me", 
+                    "User", 
+                    "Computer Science", 
+                    "800", 
+                    "Freshman");
     }
 
     /**
@@ -55,7 +61,7 @@ public class Center {
      */
     public Center(String titleLabel, String name, String major, String age, String year) {
         /* Setting panels */
-        centerPanel = new JPanel(new BorderLayout());
+        centerPanel = new JPanel(new BorderLayout(0,5));
         questionPanel = new JPanel(new GridLayout(4, 2, 30, 18));
         
         /* Display Label */

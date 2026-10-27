@@ -20,7 +20,8 @@ public class Footer {
      * Default Footer constructor
      */
     public Footer() {
-        this("Clear Text Fields", "Exit Program");
+        this("Clear Text Fields", 
+        "Exit Program");
     }
 
     /**

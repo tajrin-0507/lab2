@@ -27,7 +27,9 @@ public class Header {
      * Default constructor
      */
     public Header() {
-        this("Greetings:", "Hello, World!", "Submit");
+        this("Greetings:", 
+        "Hello, World!", 
+        "Submit");
     }
 
     /**

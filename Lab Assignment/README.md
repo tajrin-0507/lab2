@@ -19,10 +19,13 @@ Your program included at least one hack. 20/10pts (includes two)
 
 ### How to run:
 (Need to use no warn because some URL code a deprecated)
-Compile: javac -nowarn Header.java Center.java Footer.java ScrollPaneWatermark.java BackgroundLoader.java 
+Compile: 
+javac -Xlint:-deprecation BackgroundLoader.java
+javac Header.java Center.java Footer.java ScrollPaneWatermark.java
 
 Once compiled without errors...
 
-Compile: javac AboutMeForm.java
+Compile: 
+javac AboutMeForm.java
 
 Once compiled without errors, run: java AboutMeForm

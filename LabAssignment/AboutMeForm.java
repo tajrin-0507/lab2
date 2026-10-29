@@ -21,7 +21,7 @@ public class AboutMeForm {
    public static void createAndShowGUI() {
        JFrame frame = new JFrame("About Me Form");
        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       frame.setSize(500, 350);
+       frame.setSize(400, 280);
        frame.setLocationRelativeTo(null);
        frame.setLayout(new BorderLayout());
 

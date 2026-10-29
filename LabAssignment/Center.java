@@ -43,11 +43,11 @@ public class Center {
      *  with the params)
      */
     public Center() {
-        this("About Me", 
-                    "User", 
+        this("Hello World!", 
+                    "Student 1", 
                     "Computer Science", 
-                    "800", 
-                    "Freshman");
+                    "20", 
+                    "Junior");
     }
 
     /**

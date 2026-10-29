@@ -25,7 +25,7 @@ public class AboutMeForm {
        frame.setLocationRelativeTo(null);
        frame.setLayout(new BorderLayout());
 
-       Header header = new Header("Type a title:", "", "Submit");
+       Header header = new Header("Greeting:", "Hello World!", "Submit");
        Center center = new Center();
        Footer footer = new Footer("Clear", "Exit");
 
